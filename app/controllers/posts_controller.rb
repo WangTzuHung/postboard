@@ -23,10 +23,24 @@ class PostsController < ApplicationController
       render :new
     end
   end
+  def vote
+    @post = Post.find(params[:id])
+    @vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
 
+    if @vote.valid?
+      flash[:success] = 'Your vote was counted!'
+    else
+      flash[:error] = "You can only vote for #{@post.title} once!"
+    end
+
+    redirect_to :back
+  end
+  
   private
 
   def post_params
     params.require(:post).permit(:title, :content, category_ids: [])
   end
+
+
 end

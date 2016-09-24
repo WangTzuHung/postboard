@@ -24,6 +24,21 @@ Rails.application.routes.draw do
   resources :posts do 
     resources :comments 
   end
+  
+  resources :posts, except: [:destroy] do
+    member do # 客製化連結
+      post :vote
+      # 這樣會產出 posts/1/vote
+    end
+
+    resources :comments, only: [:create, :show] do
+      member do
+        post :vote
+        # 產出 posts/1/comments/1/vote
+      end
+    end
+  end
+
   # Example resource route with options:
   #   resources :products do
   #     member do
