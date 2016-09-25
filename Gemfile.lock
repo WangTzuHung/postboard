@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    WangTzuHung_voting (0.1.0)
     actionmailer (4.2.4)
       actionpack (= 4.2.4)
       actionview (= 4.2.4)
@@ -161,6 +162,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  WangTzuHung_voting
   bcrypt (~> 3.1.7)
   bootstrap-sass
   byebug
