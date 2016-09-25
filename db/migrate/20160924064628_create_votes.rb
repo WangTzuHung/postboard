@@ -6,6 +6,7 @@ def change
       t.string  :voteable_type
       t.integer :voteable_id
 
+
       t.timestamps
     end
   end
